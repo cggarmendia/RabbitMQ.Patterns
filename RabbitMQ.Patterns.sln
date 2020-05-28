@@ -125,6 +125,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server3", "Headers\Server3\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server4", "Headers\Server4\Server4.csproj", "{58A9E077-B935-486D-AEC4-52214C5AF2B4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScatterGather", "ScatterGather", "{97D62129-62C4-43E0-A431-AF09726CC919}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-Items", "Solution-Items", "{0A715564-0706-4A85-8899-0DACE7A66C3A}"
+	ProjectSection(SolutionItems) = preProject
+		ScatterGather\Solution-Items\RabbitMQ.Client.dll = ScatterGather\Solution-Items\RabbitMQ.Client.dll
+		ScatterGather\Solution-Items\SetupRabbitMQQueueDurable.bat = ScatterGather\Solution-Items\SetupRabbitMQQueueDurable.bat
+		ScatterGather\Solution-Items\SetupRabbitMQQueueDurable.ps1 = ScatterGather\Solution-Items\SetupRabbitMQQueueDurable.ps1
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "ScatterGather\Client\Client.csproj", "{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "ScatterGather\Server\Server.csproj", "{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server2", "ScatterGather\Server2\Server2.csproj", "{81ADAB87-6B69-4744-81E1-27F3FDB3F675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server3", "ScatterGather\Server3\Server3.csproj", "{886CACD9-4D49-45CB-BB1F-C1430BC8733C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +240,22 @@ Global
 		{58A9E077-B935-486D-AEC4-52214C5AF2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A9E077-B935-486D-AEC4-52214C5AF2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A9E077-B935-486D-AEC4-52214C5AF2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81ADAB87-6B69-4744-81E1-27F3FDB3F675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81ADAB87-6B69-4744-81E1-27F3FDB3F675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81ADAB87-6B69-4744-81E1-27F3FDB3F675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81ADAB87-6B69-4744-81E1-27F3FDB3F675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -259,6 +292,11 @@ Global
 		{089A8D7E-BDCC-4BB0-8F4A-DE4C95C18F10} = {B12D070A-57B7-4904-93DB-4D46AA6741C1}
 		{8C4A01D4-CDE9-46F3-84A1-08572C0EAA0C} = {B12D070A-57B7-4904-93DB-4D46AA6741C1}
 		{58A9E077-B935-486D-AEC4-52214C5AF2B4} = {B12D070A-57B7-4904-93DB-4D46AA6741C1}
+		{0A715564-0706-4A85-8899-0DACE7A66C3A} = {97D62129-62C4-43E0-A431-AF09726CC919}
+		{1E9BEDE6-CE04-41B5-A6A0-A0469F7997B1} = {97D62129-62C4-43E0-A431-AF09726CC919}
+		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9} = {97D62129-62C4-43E0-A431-AF09726CC919}
+		{81ADAB87-6B69-4744-81E1-27F3FDB3F675} = {97D62129-62C4-43E0-A431-AF09726CC919}
+		{886CACD9-4D49-45CB-BB1F-C1430BC8733C} = {97D62129-62C4-43E0-A431-AF09726CC919}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D929DFA6-C915-4F11-A415-B621A74386A7}
