@@ -67,6 +67,7 @@ namespace Client
             _responseQueue = _model.QueueDeclare().QueueName;
             _consumer = new EventingBasicConsumer(_model);
             _model.BasicConsume(_responseQueue, true, _consumer);
+            _consumer.Received += OnRecieved;
         }
 
         private void DisplaySettings()
@@ -100,7 +101,6 @@ namespace Client
 
             while (DateTime.Now <= timeoutAt && !_onRecievedFinished)
             {
-                _consumer.Received += OnRecieved;
             }
 
             if (timeoutAt <= DateTime.Now)

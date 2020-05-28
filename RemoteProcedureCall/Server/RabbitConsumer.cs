@@ -84,7 +84,7 @@ namespace Server
         #region Public_Methods
         public void Start()
         {
-            while (Enable)
+            if (Enable)
             {
                 var consumer = new EventingBasicConsumer(_model);
                 consumer.Received += OnRecieved;
