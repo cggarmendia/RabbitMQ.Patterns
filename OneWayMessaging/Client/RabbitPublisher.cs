@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using Contract;
+using RabbitMQ.Client;
 using System;
 using System.Text;
 
@@ -29,12 +30,13 @@ namespace Client
         #endregion
 
         #region Public_Methods
-        public void PublishMessage(string message)
+        public void PublishMessage(MyMessage message)
         {
             var properties = _model.CreateBasicProperties();
             properties.Persistent = true;
 
-            byte[] myMessage = Encoding.Default.GetBytes(message);
+            var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(message);
+            byte[] myMessage = Encoding.Default.GetBytes(jsonString);
 
             _model.BasicPublish(ExchangeName, QueueName, properties, myMessage);
         }

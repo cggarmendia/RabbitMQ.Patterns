@@ -142,6 +142,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server2", "ScatterGather\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server3", "ScatterGather\Server3\Server3.csproj", "{886CACD9-4D49-45CB-BB1F-C1430BC8733C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "OneWayMessaging\Contract\Contract.csproj", "{309559B5-4B78-4AFC-8828-AD35B142CCD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -256,6 +258,10 @@ Global
 		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886CACD9-4D49-45CB-BB1F-C1430BC8733C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309559B5-4B78-4AFC-8828-AD35B142CCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309559B5-4B78-4AFC-8828-AD35B142CCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309559B5-4B78-4AFC-8828-AD35B142CCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309559B5-4B78-4AFC-8828-AD35B142CCD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -297,6 +303,7 @@ Global
 		{6A4DB541-C1A2-4F96-BEB3-F9F9E54ACDF9} = {97D62129-62C4-43E0-A431-AF09726CC919}
 		{81ADAB87-6B69-4744-81E1-27F3FDB3F675} = {97D62129-62C4-43E0-A431-AF09726CC919}
 		{886CACD9-4D49-45CB-BB1F-C1430BC8733C} = {97D62129-62C4-43E0-A431-AF09726CC919}
+		{309559B5-4B78-4AFC-8828-AD35B142CCD2} = {B98ECF8D-93DB-4133-B3F4-650D7561515E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D929DFA6-C915-4F11-A415-B621A74386A7}

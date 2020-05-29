@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using Contract;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Text;
@@ -66,9 +67,12 @@ namespace Server
 
         private void OnRecieved(object sender, BasicDeliverEventArgs deliveryArgs)
         {
-            var message = Encoding.Default.GetString(deliveryArgs.Body);
+            var jsonString = Encoding.Default.GetString(deliveryArgs.Body);
 
-            Console.WriteLine("Message Recieved - {0}", message);
+            var myMessage = Newtonsoft.Json.JsonConvert.DeserializeObject<MyMessage>(jsonString);
+
+            Console.WriteLine("Message Recieved - JsonString = {0}", jsonString);
+            Console.WriteLine("Message Recieved - Message = {0}", myMessage.Message);
 
             _model.BasicAck(deliveryArgs.DeliveryTag, false);
         }

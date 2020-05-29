@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using Contract;
+using RabbitMQ.Client;
 using System;
 using System.Text;
 
@@ -25,9 +26,15 @@ namespace Client
 
                 if (key.Key == ConsoleKey.Enter)
                 {
-                    var message = $"Message: {messageCount}";
-                    Console.WriteLine("Sending - {0}", messageCount);
-                    publisher.PublishMessage(message);
+                    var myMessage = new MyMessage() 
+                    {
+                        Message = $"Message: {messageCount}"
+                    };
+
+                    Console.WriteLine("Sending - {0}", myMessage.Message);
+
+                    publisher.PublishMessage(myMessage);
+
                     messageCount++;
                 }
             }
