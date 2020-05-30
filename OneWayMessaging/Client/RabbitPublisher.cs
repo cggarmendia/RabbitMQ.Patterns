@@ -1,7 +1,10 @@
 ﻿using Contract;
 using RabbitMQ.Client;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Client
 {
@@ -30,13 +33,14 @@ namespace Client
         #endregion
 
         #region Public_Methods
-        public void PublishMessage(MyMessage message)
+        public void PublishMessage(object message, MessageFormat format)
         {
             var properties = _model.CreateBasicProperties();
             properties.Persistent = true;
+            properties.ContentType = GetContentType(format);
+            properties.Type = GetMessageType(message);
 
-            var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(message);
-            byte[] myMessage = Encoding.Default.GetBytes(jsonString);
+            byte[] myMessage = SerializeMessage(message, format);
 
             _model.BasicPublish(ExchangeName, QueueName, properties, myMessage);
         }
@@ -80,6 +84,56 @@ namespace Client
             Console.WriteLine("VirtualHost: {0}", VirtualHost);
             Console.WriteLine("Port: {0}", Port);
             Console.WriteLine("IsDurable: {0}", IsDurable);
+        }
+
+        private static string GetContentType(MessageFormat format)
+        {
+            var contentType = string.Empty;
+
+            if (format.Equals(MessageFormat.Json))
+                contentType = "application/json";
+            else if (format.Equals(MessageFormat.Xml))
+                contentType = "text/xml";
+            else if (format.Equals(MessageFormat.Binary))
+                contentType = "application/octet-stream";
+
+            return contentType;
+        }
+
+        private static string GetMessageType(object messageObject)
+        {
+            return messageObject.GetType().Name;
+        }
+
+        private static byte[] SerializeMessage(object myMessage, MessageFormat format)
+        {
+            byte[] result = null;
+
+            if (format.Equals(MessageFormat.Json))
+            {
+                var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(myMessage);
+                result = Encoding.Default.GetBytes(jsonString);
+            }
+            else if (format.Equals(MessageFormat.Xml))
+            {
+                var messageStream = new MemoryStream();
+                var xmlSerializer = new XmlSerializer(myMessage.GetType());
+                xmlSerializer.Serialize(messageStream, myMessage);
+                messageStream.Flush();
+                messageStream.Seek(0, SeekOrigin.Begin);
+                result = messageStream.GetBuffer();
+            }
+            else if (format.Equals(MessageFormat.Binary))
+            {
+                var messageStream = new MemoryStream();
+                var binarySerializer = new BinaryFormatter();
+                binarySerializer.Serialize(messageStream, myMessage);
+                messageStream.Flush();
+                messageStream.Seek(0, SeekOrigin.Begin);
+                result = messageStream.GetBuffer();
+            }
+
+            return result;
         }
         #endregion
     }

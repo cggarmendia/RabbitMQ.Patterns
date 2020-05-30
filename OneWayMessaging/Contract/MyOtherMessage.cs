@@ -3,7 +3,7 @@
 namespace Contract
 {
     [Serializable]
-    public class MyMessage : ICustomMessage
+    public class MyOtherMessage : ICustomMessage
     {
         public string Message { get; set; }
     }
